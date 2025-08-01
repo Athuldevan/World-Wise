@@ -1,4 +1,5 @@
 
+import { Navigate } from "react-router-dom";
 import PageNav from "../components/PageNav";
 import styles from "./Login.module.css";
 import { useState } from "react";
@@ -33,7 +34,7 @@ k
         </div>
 
         <div>
-          <button>Login</button>
+          <button onClick={Navigate('/app')}>Login</button>
         </div>
       </form>
     </main>
