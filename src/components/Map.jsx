@@ -70,7 +70,7 @@ function Map() {
         />
 
         {cities
-          .filter(
+          ?.filter(
             (city) =>
               city?.position?.lat !== undefined &&
               city?.position?.lng !== undefined
