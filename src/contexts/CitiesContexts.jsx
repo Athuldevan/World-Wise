@@ -36,7 +36,6 @@ function CitiesProvider({ children }) {
   }
 
   async function createCity(newCity) {
-    console.log(newCity);
     try {
       const { data } = await axios.post(`${BASE_URL}/cities`, newCity);
       setCities((cities) => [...cities, data]);
@@ -49,6 +48,7 @@ function CitiesProvider({ children }) {
 
   async function deleteCity(id) {
     try {
+      setIsLoading(true);
       await axios.delete(`${BASE_URL}/cities/${id}`);
       setCities((cities) => cities.filter((city) => city.id !== id));
     } catch (error) {
