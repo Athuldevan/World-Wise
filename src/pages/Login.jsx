@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Navigate, replace, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import PageNav from "../components/PageNav";
 import styles from "./Login.module.css";
@@ -7,9 +7,9 @@ import { useAuth } from "../contexts/AuthContext";
 import Button from "../components/Button";
 
 export default function Login() {
-  const [email, setEmail] = useState("jack@example.com s");
+  const [email, setEmail] = useState("jack@example.com");
   const [password, setPassword] = useState("qwerty");
-  const { login, isAuthenticated , logout} = useAuth();
+  const { login, isAuthenticated} = useAuth();
 
   const navigate = useNavigate();
 

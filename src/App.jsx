@@ -12,6 +12,7 @@ import CountryList from "./components/CountryList";
 import City from "./components/City.jsx";
 import { CitiesProvider } from "./contexts/CitiesContexts.jsx";
 import { AuthProvider } from "./contexts/AuthContext.jsx";
+import ProtectedRoute from "./pages/ProtectedRoute.jsx";
 
 function App() {
   return (
@@ -24,7 +25,14 @@ function App() {
             <Route path="pricing" element={<Pricing />} />
             <Route path="login" element={<Login />} />
             {/* Nested Route  */}
-            <Route path="app" element={<AppLayout />}>
+            <Route
+              path="app"
+              element={
+                <ProtectedRoute>
+                  <AppLayout />
+                </ProtectedRoute>
+              }
+            >
               <Route index element={<Navigate to="cities" replace />} />
               <Route path="cities" element={<CityList />} />
               <Route path="cities/:id" element={<City />} />
