@@ -1,15 +1,20 @@
-import Sidebar from "../components/Sidebar";
-import Map from "../components/Map";
+import { lazy, Suspense } from "react";
+
+const Sidebar = lazy(() => import("../components/Sidebar"));
+const Map = lazy(() => import("../components/Map"));
+const User = lazy(() => import("../components/User"));
 import styles from "./AppLayout.module.css";
-import User from "../components/User";
+import SpinnerFullPage from "../components/SpinnerFullPage";
 
 function AppLayout() {
   return (
     <div className={styles.app}>
-      <Sidebar />
+      <Suspense fallback={<SpinnerFullPage />}>
+        <Sidebar />
 
-      <Map />
-      <User/>
+        <Map />
+        <User />
+      </Suspense>
 
       <p>App</p>
     </div>
